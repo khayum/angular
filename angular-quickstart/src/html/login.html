@@ -1,0 +1,29 @@
+<div class="login-body">
+<div class="login-panel ui-fluid">
+            <div class="ui-g">
+                <div class="ui-g-12 login-header">
+                    <h1>{{title}}</h1>
+                    <h2>{{subtitle}}</h2>
+                    <img src="./images/logo.png">
+                </div>
+                <div class="ui-g-12">
+                    <span class="md-inputfield">
+                        <input type="text" id="username" autocomplete="off"  class="ui-inputtext ui-corner-all ui-state-default ui-widget" (blur)="onBlur($event)" #inptuser>
+                        <label>Username</label>
+                    </span>
+                </div>
+                <div class="ui-g-12">
+                    <span class="md-inputfield">
+                        <input type="password" id="userpwd" autocomplete="off"  class="ui-inputtext ui-corner-all ui-state-default ui-widget" (blur)="onBlur($event)" #inptpwd>
+                        <label>Password</label>
+                    </span>
+                </div>
+                <div class="ui-g-12 button-container">
+                    <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" (click)="onLoginClick($event)">
+                        <span class="ui-button-icon-left ui-c fa fa-user"></span>
+                        <span class="ui-button-text ui-c">Sign In</span>
+                    </button>
+                </div>                
+            </div>
+</div>
+</div>
