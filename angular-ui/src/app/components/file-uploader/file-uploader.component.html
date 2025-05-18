@@ -1,0 +1,52 @@
+<table class="styled-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>File Type Name</th>
+        <th>File Type</th>
+        <th>Uploaded File Name</th>
+        <th>File Size</th>
+        <th>Uploader</th>
+        <th>Preview</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fileType of uniqueFileTypes; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ fileType.fileTypeName }} <span *ngIf="fileType.mandatory" style="color: red;">*</span></td>
+        <td>{{ fileType.fileType }}</td>       
+        <td>{{ uploadedFiles[fileType.fileTypeId]?.name || 'No file uploaded' }}</td>
+        <td>{{ uploadedFiles[fileType.fileTypeId]?.size ? (uploadedFiles[fileType.fileTypeId]?.size | number) + ' KB' : '---' }}</td>
+        <td>
+          <p-fileUpload
+            name="file"
+            url="YOUR_BACKEND_URL"
+            (uploadHandler)="onUpload($event, fileType.fileTypeId)"
+            [customUpload]="true"
+            [showUploadButton]="false"
+            [showCancelButton]="false"
+            [auto]="true">
+            <ng-template pTemplate="customcontent">
+              <button class="custom-upload-btn" (click)="upload.click()">
+                <i class="pi pi-cloud-upload"></i> Upload
+              </button>
+              <input #upload type="file" (change)="onUpload($event, fileType.fileTypeId)" hidden>
+            </ng-template>
+          </p-fileUpload>
+        </td>
+        <td>
+          <img *ngIf="uploadedFiles[fileType.fileTypeId]"
+               [src]="uploadedFiles[fileType.fileTypeId].thumbnailUrl"
+               alt="Preview" width="50" height="50">
+        </td>
+        <td>
+          <button *ngIf="uploadedFiles[fileType.fileTypeId]" 
+                  (click)="onDownload(uploadedFiles[fileType.fileTypeId])">
+            <i class="pi pi-download"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

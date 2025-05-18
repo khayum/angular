@@ -1,0 +1,18 @@
+<p-dialog [visible]="mode !== null" [header]="mode === 'add' ? 'Add Student' : 'Edit Student'">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="name">Name</label>
+        <input id="name" type="text" pInputText [(ngModel)]="student.name">
+      </div>
+      <div class="p-field">
+        <label for="grade">Grade</label>
+        <input id="grade" type="number" pInputText [(ngModel)]="student.grade">
+      </div>
+      <div class="p-field">
+        <label for="division">Division</label>
+        <input id="division" type="text" pInputText [(ngModel)]="student.division">
+      </div>
+      <button pButton type="button" label="Save" (click)="saveStudent()"></button>
+    </div>
+  </p-dialog>
+  

@@ -1,0 +1,42 @@
+[
+    {
+      "id": 1,
+      "name": "Test School",
+      "location": "ABCD",
+      "phone": 3212344,
+      "status": "open",
+      "students": [
+        {
+          "id": 1,
+          "name": "Ronaldo",
+          "age": 8,
+          "grade": 1,
+          "division": "A"
+        },
+        {
+          "id": 2,
+          "name": "Messi",
+          "age": 9,
+          "grade": 2,
+          "division": "B"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Elite Academy",
+      "location": "XYZ",
+      "phone": 9876543,
+      "status": "closed",
+      "students": [
+        {
+          "id": 3,
+          "name": "Neymar",
+          "age": 10,
+          "grade": 3,
+          "division": "A"
+        }
+      ]
+    }
+  ]
+  
