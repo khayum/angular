@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,8 +11,12 @@ import { DialogModule } from 'primeng/dialog';
 import { FileUploadModule } from 'primeng/fileupload';
 import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
 import { HttpClientModule } from '@angular/common/http';
-@NgModule({
-  declarations: [AppComponent, StudentFormComponent, FileUploaderComponent],
+import { HandsonGridComponent } from './components/handson-grid/handson-grid.component';
+import { HotTableModule } from '@handsontable/angular';
+
+@NgModule({ 
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  declarations: [AppComponent, StudentFormComponent, FileUploaderComponent, HandsonGridComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -21,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     DialogModule,
     FileUploadModule,
-    HttpClientModule
+    HttpClientModule,
+    HotTableModule
   ],
   providers: [PrimeNGConfig],
   bootstrap: [AppComponent]
